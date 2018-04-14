@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
- * Created by krzysztofkaczor on 3/9/15.
+ * Ariel AB
  */
 public class BitArray {
     private final int size;
@@ -27,7 +27,7 @@ public class BitArray {
     public BitArray(int value, int size) {
         this(size);
 
-        String binString = Integer.toBinaryString(value); //i am lazy
+        String binString = Integer.toBinaryString(value); 
         int offset = size - binString.length();
 
         if (offset < 0) {
@@ -55,7 +55,7 @@ public class BitArray {
     public String toString() {
 //        return toDecString();
         if (this.size % 8 == 0)
-            return this.toHexString(); //use hex notation if it is possible
+            return this.toHexString(); //Usar notacion hexadecimal de ser posible
         else
             return toBinString();
     }
@@ -80,8 +80,8 @@ public class BitArray {
                 n += bitArray[i + j]? 1 : 0;
             }
 
-            //it also adds leading 0
-            sb.append(Integer.toHexString(0x100 | n).substring(1) + " ");
+            //tambien agrega 0 a la izquierda
+            sb.append(Integer.toHexString(0x100 | n).substring(1)).append(" ");
         }
         return "[" + sb.deleteCharAt(sb.length() - 1).toString() + "]";
     }
@@ -175,7 +175,7 @@ public class BitArray {
     }
 
     public BitArray twosComplement() {
-        AdditionModuloOperator additionModuloOperator = new AdditionModuloOperator();
+        OperadorModuloAdicional additionModuloOperator = new OperadorModuloAdicional();
         return additionModuloOperator.combine(this.negate(), new BitArray(1, this.size));
     }
 
@@ -188,7 +188,7 @@ public class BitArray {
                 n += bitArray[i + j]? 1 : 0;
             }
 
-            //it also adds leading 0
+            //tambien agrega 0 a la izquierda
             sb.append((char)n);
         }
         return sb.toString();

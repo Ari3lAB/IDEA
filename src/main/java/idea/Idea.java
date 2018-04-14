@@ -52,11 +52,11 @@ public class Idea {
         }
     }
 
-    public IdeaBlock compute(IdeaBlock inputBlock, List<BitArray> keys) {
-        IdeaRound round = new IdeaRound();
-        IdeaHalfRound halfRound = new IdeaHalfRound();
+    public BloqueIdea compute(BloqueIdea inputBlock, List<BitArray> keys) {
+        RondaIDea round = new RondaIDea();
+        MediaRondaIdea halfRound = new MediaRondaIdea();
 
-        IdeaBlock resultBlock = inputBlock;
+        BloqueIdea resultBlock = inputBlock;
         for (int i = 0; i < 8;i++) {
             resultBlock = round.encrypt(resultBlock, keys.get(i * 6), keys.get(i * 6 + 1),
                     keys.get(i * 6 + 2), keys.get(i * 6 + 3), keys.get(i * 6 + 4),
@@ -67,11 +67,11 @@ public class Idea {
         return resultBlock;
     }
 
-    public IdeaBlock encrypt(IdeaBlock inputBlock) {
+    public BloqueIdea encrypt(BloqueIdea inputBlock) {
         return compute(inputBlock, encryptionKeys);
     }
 
-    public IdeaBlock decrypt(IdeaBlock inputBlock) {
+    public BloqueIdea decrypt(BloqueIdea inputBlock) {
         return compute(inputBlock, decryptionKeys);
     }
 }

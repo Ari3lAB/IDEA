@@ -1,13 +1,13 @@
 package idea;
 
-import bits.BinaryOperator;
 import bits.BitArray;
+import bits.OperadorBinario;
 
 /**
  * Created by krzysztofkaczor on 3/10/15.
  */
 
-public class IdeaMultiplicationModuloOperator implements BinaryOperator {
+public class IdeaMultiplicationModuloOperator implements OperadorBinario {
     @Override
     public BitArray combine(BitArray operand1, BitArray operand2) {
         if(operand1.size() != 16 || operand2.size() != 16) {
